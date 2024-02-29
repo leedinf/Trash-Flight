@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     }
     IEnumerator EnemyRoutine()
     {
+        float moveSpeed = 5f;
         int enemyIndex = 0;
         int spawnCount = 0;
         yield return new WaitForSeconds(3f);
@@ -36,11 +37,12 @@ public class EnemySpawner : MonoBehaviour
             // int index = UnityEngine.Random.Range(0, enemies.Length);
             // int posIndex = UnityEngine.Random.Range(0, arrPosx.Length);
             foreach(float posX in arrPosx){
-                SpawnEnemy(posX, enemyIndex);
+                SpawnEnemy(posX, enemyIndex, moveSpeed);
             }
             spawnCount++;
             if(spawnCount % 10 == 0){
                 enemyIndex++;
+                moveSpeed +=2;
             }
             yield return new WaitForSeconds(spawnInterval);
         }
@@ -51,12 +53,14 @@ public class EnemySpawner : MonoBehaviour
     {
 
     }
-    void SpawnEnemy(float posX, int index)
+    void SpawnEnemy(float posX, int index, float moveSpeed)
     {
         if(index >= enemies.Length){
             index=enemies.Length-1;
         }
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
-        Instantiate(enemies[index], spawnPos, quaternion.identity);
+        GameObject enemyObject = Instantiate(enemies[index], spawnPos, quaternion.identity);
+        Enemy enemy = enemyObject.GetComponent<Enemy>();
+        enemy.SetmoveSpeed(moveSpeed);
     }
 }

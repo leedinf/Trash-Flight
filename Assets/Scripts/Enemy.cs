@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
 
     private float minY = -7;
+
+    public void SetmoveSpeed(float moveSpeed){
+        this.moveSpeed = moveSpeed;
+    }
     void Update()
     {
         transform.position += Vector3.down * moveSpeed * Time.deltaTime;
