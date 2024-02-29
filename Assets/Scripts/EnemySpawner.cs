@@ -31,13 +31,19 @@ public class EnemySpawner : MonoBehaviour
         float moveSpeed = 5f;
         int enemyIndex = 0;
         int spawnCount = 0;
+        int ranNum;
         yield return new WaitForSeconds(3f);
         while (true)
         {
+            
             // int index = UnityEngine.Random.Range(0, enemies.Length);
             // int posIndex = UnityEngine.Random.Range(0, arrPosx.Length);
             foreach(float posX in arrPosx){
-                SpawnEnemy(posX, enemyIndex, moveSpeed);
+                ranNum = UnityEngine.Random.Range(0,5);
+                if(ranNum==0){
+                    SpawnEnemy(posX, (enemyIndex+1)%enemies.Length, moveSpeed);
+                }
+                else SpawnEnemy(posX, enemyIndex, moveSpeed);
             }
             spawnCount++;
             if(spawnCount % 10 == 0){
