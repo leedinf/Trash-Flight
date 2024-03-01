@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,6 +11,8 @@ public class Enemy : MonoBehaviour
 
     private float minY = -7;
 
+    [SerializeField]
+    private float hp = 1f;
     public void SetmoveSpeed(float moveSpeed){
         this.moveSpeed = moveSpeed;
     }
@@ -20,4 +23,20 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //IsTrigger On
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Weapon"){
+            Weapon weapon = other.gameObject.GetComponent<Weapon>();
+            hp -= weapon.damage;
+            if(hp <= 0){
+                Destroy(gameObject);
+            }
+            Destroy(other.gameObject);
+        }
+    }
+    //IsTrigger Off
+    // private void OnCollisionEnter2D(Collision2D other) {
+        
+    // }
 }
