@@ -402,7 +402,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  weapon: {fileID: 6509018173773171150, guid: 54c55b90f9acbf1409495f9ef11c9cf1, type: 3}
+  weapons:
+  - {fileID: 6509018173773171150, guid: 54c55b90f9acbf1409495f9ef11c9cf1, type: 3}
+  - {fileID: 6509018173773171150, guid: f0bf3288afc080f408c4118c3db87867, type: 3}
+  - {fileID: 6509018173773171150, guid: 348b81c4e5d1f404ea63c3e667255ce7, type: 3}
   shootTransform: {fileID: 1170357594}
   shootInterval: 0.1
 --- !u!50 &713225113

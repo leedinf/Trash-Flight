@@ -21,6 +21,14 @@ public class GameManager : MonoBehaviour
     public void IncreaseCoin(){
         coin ++;
         text.SetText(coin.ToString());
+
+        if(coin%5==0){
+            Player player = FindObjectOfType<Player>();
+
+            if(player != null){
+                player.Upgrade();
+            }
+        }
     }
     
 }
