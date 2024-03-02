@@ -6,10 +6,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
+    private GameObject coin;
+
+    [SerializeField]
     private float moveSpeed = 10f;
     // Update is called once per frame
 
-    private float minY = -7;
+    private float minY = -7f;
 
     [SerializeField]
     private float hp = 1f;
@@ -31,6 +34,7 @@ public class Enemy : MonoBehaviour
             hp -= weapon.damage;
             if(hp <= 0){
                 Destroy(gameObject);
+                Instantiate(coin, transform.position, Quaternion.identity);
             }
             Destroy(other.gameObject);
         }

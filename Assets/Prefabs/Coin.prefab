@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7489520004895897738}
   - component: {fileID: 877387008206974528}
   - component: {fileID: 4420623686792961755}
+  - component: {fileID: 6502423921936956742}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 4592660962541174985}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 0.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.6033, y: 0.5233, z: 0}
+  m_LocalScale: {x: 2.2082014, y: 2.2082014, z: 2.2082014}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 4592660962541174985}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7f70c193c1bdee449982051e440a0cc3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9fe818ec35f058f41b32bddf446a987f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -170,3 +171,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6502423921936956742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592660962541174985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 416e0b04bdb01fd48b5f83c97478a56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
