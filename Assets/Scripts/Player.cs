@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +13,6 @@ public class Player : MonoBehaviour
     private GameObject[] weapons;
     [SerializeField]
     private Transform shootTransform;
-
     [SerializeField]
     private float shootInterval = 0.05f;
     
@@ -38,7 +39,8 @@ public class Player : MonoBehaviour
         float toX = Mathf.Clamp(mousePos.x,-2.3f,2.3f);
         transform.position = new Vector3(toX,transform.position.y,transform.position.z);
 
-        Shoot();
+        //게임이 끝났는지 확인
+        if(GameManager.instance.isGameOver == false) Shoot();
         
     }
     void Shoot(){
@@ -48,8 +50,9 @@ public class Player : MonoBehaviour
         }
     }
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Enemy"){
-            Debug.Log("Game Over !");
+        if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss"){
+            // Debug.Log("Game Over !");
+            GameManager.instance.SetGameOver();
             Destroy(gameObject);
         }
         else if(other.gameObject.tag == "Coin"){
